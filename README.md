@@ -34,7 +34,9 @@ def mean_confidence_interval(data, confidence=0.95):
 #### P-value for a One-sample T-test
 ```python
 
-#Let’s consider a scenario where we have a sample of exam scores from a group of students, and we want to test whether the average exam score is significantly different from a population mean. The average exam score for a population of students is known to be 75 in a sample of 250 students.
+#Let’s consider a scenario where we have a sample of exam scores from a group of students,
+#and we want to test whether the average exam score is significantly different from a population mean.
+#The average exam score for a population of students is known to be 75 in a sample of 250 students.
 
 import numpy as np
 from scipy.stats import t
