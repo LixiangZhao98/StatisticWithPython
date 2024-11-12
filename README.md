@@ -2,9 +2,8 @@
 
 ## Read CSV
 
-```
-for subdir, dirs, files in os.walk(path_directory):
-#for i in os.listdir(path_directory):
+```python
+for subdir, dirs, files in os.walk(path_directory):   \\read
   for file in files:
     if file.endswith(".csv"):
       path_file = os.path.join(subdir,file)
