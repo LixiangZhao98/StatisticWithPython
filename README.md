@@ -31,6 +31,7 @@ def mean_confidence_interval(data, confidence=0.95):
 ```
 
 ## P-Value from a t-Score
+https://www.geeksforgeeks.org/how-to-find-a-p-value-from-a-t-score-in-python/?ref=header_outind
 #### P-value for a One-sample T-test
 ```python
 
