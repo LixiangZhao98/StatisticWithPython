@@ -1,6 +1,6 @@
 # StatisticWithPython
 
-##Confidence Interval
+## Confidence Interval
 ```python
 import numpy as np
 import scipy.stats
