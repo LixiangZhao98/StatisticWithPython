@@ -91,3 +91,67 @@ one_sample_t_test(sample_data, population_mean, tail="two")
 #P-value: 0.0013870092433008773
 #Reject the null hypothesis. There is a statistically significant difference.
 ```
+#### P-value for a Two-sample T-test Independence
+
+
+```python
+#Suppose you are a data analyst working for a company that has two different methods for manufacturing a certain type of product. 
+#You want to investigate whether there is a significant difference in the average quality of the product produced by the two methods. 
+#To do this, you collect samples from each manufacturing method and perform a two-sample t-test.
+#Sample 1: Quality scores from 100 products manufactured using Method 1.
+#Sample 2: Quality scores from 120 products manufactured using Method 2.
+
+import numpy as np
+from scipy.stats import t
+
+# Step 1: Calculate the T-score
+def calculate_t_score(sample1, sample2):
+	mean1 = np.mean(sample1)
+	mean2 = np.mean(sample2)
+	std1 = np.std(sample1, ddof=1) 
+	std2 = np.std(sample2, ddof=1)
+	n1 = len(sample1)
+	n2 = len(sample2)
+
+	t_score = (mean1 - mean2) / np.sqrt((std1**2 / n1) + (std2**2 / n2))
+	return t_score
+
+# Step 2: Determine the degrees of freedom (df)
+def calculate_degrees_of_freedom(sample1, sample2):
+	n1 = len(sample1)
+	n2 = len(sample2)
+	df = n1 + n2 - 2 # For a two-sample t-test
+	return df
+
+# Step 3: Identify the appropriate t-distribution
+# (The scipy.stats.t distribution is used, which automatically considers the degrees of freedom)
+
+# Step 4: Find the p-value
+def calculate_p_value(t_score, df):
+	p_value = 2 * (1 - t.cdf(np.abs(t_score), df))
+	return p_value
+
+# Step 5: Interpret the p-value
+def interpret_p_value(p_value, alpha=0.05):
+	if p_value < alpha:
+		return "Reject the null hypothesis. There is a statistically significant difference."
+	else:
+		return "Fail to reject the null hypothesis. There is no statistically significant difference."
+
+# Generate two independent samples for Example
+np.random.seed(42)
+sample1 = np.random.normal(loc=50, scale=10, size=100)
+sample2 = np.random.normal(loc=45, scale=12, size=120)
+
+t_score = calculate_t_score(sample1, sample2)
+df = calculate_degrees_of_freedom(sample1, sample2)
+p_value = calculate_p_value(t_score, df)
+result = interpret_p_value(p_value)
+
+print("p-value:", p_value)
+print(result)
+
+#Output:
+#p-value: 0.04126391962537701
+#Reject the null hypothesis. There is a statistically significant difference.
+```
