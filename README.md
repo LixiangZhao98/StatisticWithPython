@@ -3,7 +3,8 @@
 ## Read CSV
 
 ```python
-for subdir, dirs, files in os.walk(path_directory):   #read
+path_directory= r'/Study Data'  
+for subdir, dirs, files in os.walk(path_directory):   #read all the .csv files one by one under path_directory
   for file in files:
     if file.endswith(".csv"):
       path_file = os.path.join(subdir,file)
