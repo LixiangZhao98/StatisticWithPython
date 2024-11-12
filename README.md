@@ -86,4 +86,8 @@ population_mean = 75
 
 # Example for a two-tailed test
 one_sample_t_test(sample_data, population_mean, tail="two")
+
+#Output:
+#P-value: 0.0013870092433008773
+#Reject the null hypothesis. There is a statistically significant difference.
 ```
