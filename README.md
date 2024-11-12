@@ -3,6 +3,7 @@
 ## Read CSV
 
 ```python
+import os
 path_directory= r'/Study Data'  
 for subdir, dirs, files in os.walk(path_directory):   #read all the .csv files one by one under path_directory
   for file in files:
@@ -10,6 +11,9 @@ for subdir, dirs, files in os.walk(path_directory):   #read all the .csv files o
       path_file = os.path.join(subdir,file)
       with open(path_file, encoding='utf-8')as f:
         all_lines= f.readlines()
+        #Get elements
+        taskID=(int)(all_lines[2].split(",")[3]) #Get the task id (int) on row 2, column 3
+        datasetID=(int)(all_lines[2].split(",")[4])  #Get the dataset id (int) on row 2, column 4
 ```
 ## Confidence Interval
 ```python
