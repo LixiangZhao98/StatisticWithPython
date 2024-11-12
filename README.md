@@ -1,5 +1,16 @@
 # StatisticWithPython
 
+## Read CSV
+
+```
+for subdir, dirs, files in os.walk(path_directory):
+#for i in os.listdir(path_directory):
+  for file in files:
+    if file.endswith(".csv"):
+      path_file = os.path.join(subdir,file)
+      with open(path_file, encoding='utf-8')as f:
+        all_lines= f.readlines()
+```
 ## Confidence Interval
 ```python
 import numpy as np
