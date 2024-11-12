@@ -17,7 +17,7 @@ for subdir, dirs, files in os.walk(path_directory):   #read all the .csv files o
         taskID=(int)(all_lines[2].split(",")[3]) #Get the task id (int) on row 2, column 3
         datasetID=(int)(all_lines[-2].split(",")[4])  #Get the dataset id (int) on row n-2, column 4 (n is the total row number)
 ```
-## Confidence Interval
+## Mean and Confidence Interval
 ```python
 import numpy as np
 import scipy.stats
